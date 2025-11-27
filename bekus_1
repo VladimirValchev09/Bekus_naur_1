@@ -1,0 +1,21 @@
+
+public class bekus_naur_3 {
+//This is my task condition:
+//<s> ::= x | y | <s>x | x<s>y
+	public static boolean isWord(String str) {
+			int n=str.length();
+			if(n==0) return false;
+			if(n==1) return (str.charAt(0)=='x'
+					|| str.charAt(0)=='y');
+			if(n==3) return (str.equals("xxy")||str.equals("yxx")|| str.equals("xxx"));
+			return (str.charAt(n-1)=='x' && isWord(str.substring(0,n-1)) || 
+					str.charAt(0)=='x' && str.charAt(n-1)=='y'&& isWord(str.substring(1,n-1)));
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s="y";
+		System.out.println(isWord(s));
+	}
+
+}
+
